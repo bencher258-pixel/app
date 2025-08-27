@@ -76,137 +76,168 @@ const GameResult = ({ isHacked, choices, onRestart, stats }) => {
         )}
       </div>
 
-      {/* Choices Review */}
-      <Card className="bg-slate-800/30 border-slate-700">
+      {/* Session Analysis */}
+      <Card className="bg-black/40 border-green-500/30">
         <CardHeader>
-          <CardTitle className="text-white">Your Journey</CardTitle>
+          <CardTitle className="text-green-400 font-mono">
+            [SESSION_LOG] Decision Analysis
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           {choices.map((choice, index) => (
-            <div key={index} className="flex items-center gap-4 p-4 bg-slate-700/30 rounded-lg">
-              <div className={`p-2 rounded-full ${
-                choice.type === 'dangerous' ? 'bg-red-500/20' : 'bg-emerald-500/20'
+            <div key={index} className="flex items-center gap-4 p-4 bg-black/60 border rounded-lg border-green-500/20">
+              <div className={`p-3 rounded-full border-2 ${
+                choice.type === 'dangerous' 
+                  ? 'bg-red-500/20 border-red-500' 
+                  : 'bg-green-500/20 border-green-500'
               }`}>
                 {choice.type === 'dangerous' ? (
-                  <AlertTriangle className="h-5 w-5 text-red-400" />
+                  <AlertTriangle className="h-6 w-6 text-red-400" />
                 ) : (
-                  <Shield className="h-5 w-5 text-emerald-400" />
+                  <CheckCircle className="h-6 w-6 text-green-400" />
                 )}
               </div>
               <div className="flex-1">
-                <p className="text-white font-medium">Step {index + 1}</p>
-                <p className="text-slate-400 text-sm">{choice.description}</p>
+                <div className="font-mono text-green-300">
+                  <p className="font-bold">STEP_{index + 1}_ANALYSIS</p>
+                  <p className="text-green-400 text-sm">$ {choice.description}</p>
+                </div>
               </div>
               <Badge 
                 variant="outline" 
-                className={choice.type === 'dangerous' ? 'text-red-400 border-red-400' : 'text-emerald-400 border-emerald-400'}
+                className={`font-mono ${
+                  choice.type === 'dangerous' 
+                    ? 'text-red-400 border-red-400' 
+                    : 'text-green-400 border-green-400'
+                }`}
               >
-                {choice.type === 'dangerous' ? 'Risky' : 'Safe'}
+                {choice.type === 'dangerous' ? 'VULNERABLE' : 'PROTECTED'}
               </Badge>
             </div>
           ))}
         </CardContent>
       </Card>
 
-      {/* Statistics */}
+      {/* Real Cybersecurity Statistics */}
       <div className="space-y-6">
-        <h3 className="text-2xl font-bold text-white text-center">
-          Real Cybersecurity Statistics
-        </h3>
+        <div className="text-center">
+          <h3 className="text-3xl font-mono font-bold text-green-400 mb-2">
+            [GLOBAL_THREAT_INTEL] Real Statistics
+          </h3>
+          <p className="text-green-300 font-mono">$ fetch --source=cybersecurity_reports --year=2024</p>
+        </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border-red-500/30">
+          <Card className="bg-gradient-to-br from-red-900/20 to-red-700/10 border-red-500/40 hover:border-red-400 transition-colors">
             <CardContent className="p-6 text-center">
-              <TrendingUp className="h-8 w-8 text-red-400 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-red-400 mb-2">
+              <TrendingUp className="h-10 w-10 text-red-400 mx-auto mb-4 animate-pulse" />
+              <div className="text-4xl font-mono font-bold text-red-400 mb-2">
                 {stats.phishingIncrease}
               </div>
-              <p className="text-slate-400 text-sm">
-                Increase in phishing attacks (2024)
+              <p className="text-red-300 text-sm font-mono">
+                phishing_attacks.increase(2024)
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-orange-500/10 to-yellow-500/10 border-orange-500/30">
+          <Card className="bg-gradient-to-br from-orange-900/20 to-yellow-700/10 border-orange-500/40 hover:border-orange-400 transition-colors">
             <CardContent className="p-6 text-center">
-              <Users className="h-8 w-8 text-orange-400 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-orange-400 mb-2">
+              <Users className="h-10 w-10 text-orange-400 mx-auto mb-4 animate-pulse" />
+              <div className="text-4xl font-mono font-bold text-orange-400 mb-2">
                 {stats.victimPercentage}
               </div>
-              <p className="text-slate-400 text-sm">
-                Of people fall for phishing emails
+              <p className="text-orange-300 text-sm font-mono">
+                users.fall_for_phishing()
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-yellow-500/10 to-red-500/10 border-yellow-500/30">
+          <Card className="bg-gradient-to-br from-yellow-900/20 to-red-700/10 border-yellow-500/40 hover:border-yellow-400 transition-colors">
             <CardContent className="p-6 text-center">
-              <DollarSign className="h-8 w-8 text-yellow-400 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-yellow-400 mb-2">
+              <DollarSign className="h-10 w-10 text-yellow-400 mx-auto mb-4 animate-pulse" />
+              <div className="text-4xl font-mono font-bold text-yellow-400 mb-2">
                 {stats.averageLoss}
               </div>
-              <p className="text-slate-400 text-sm">
-                Average financial loss per victim
+              <p className="text-yellow-300 text-sm font-mono">
+                avg_financial_loss.victim()
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border-blue-500/30">
+          <Card className="bg-gradient-to-br from-blue-900/20 to-purple-700/10 border-blue-500/40 hover:border-blue-400 transition-colors">
             <CardContent className="p-6 text-center">
-              <Globe className="h-8 w-8 text-blue-400 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-blue-400 mb-2">
+              <Globe className="h-10 w-10 text-blue-400 mx-auto mb-4 animate-pulse" />
+              <div className="text-4xl font-mono font-bold text-blue-400 mb-2">
                 {stats.dailyAttacks}
               </div>
-              <p className="text-slate-400 text-sm">
-                Phishing attacks per day globally
+              <p className="text-blue-300 text-sm font-mono">
+                attacks_per_day.global()
               </p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Additional Information */}
-        <Card className="bg-slate-800/30 border-slate-700">
+        {/* Security Knowledge Base */}
+        <Card className="bg-black/40 border-green-500/30">
           <CardHeader>
-            <CardTitle className="text-white">Did You Know?</CardTitle>
+            <CardTitle className="text-green-400 font-mono">
+              [KNOWLEDGE_BASE] Cybersecurity Intelligence
+            </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-6">
+          <CardContent className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h4 className="text-lg font-semibold text-emerald-400 mb-3">How to Stay Safe:</h4>
-                <ul className="space-y-2 text-slate-300 text-sm">
-                  <li>• Always verify sender's email address</li>
-                  <li>• Check for HTTPS and legitimate URLs</li>
-                  <li>• Never provide sensitive info via email</li>
-                  <li>• Be suspicious of urgent requests</li>
-                  <li>• Use multi-factor authentication</li>
-                </ul>
+                <h4 className="text-lg font-mono font-bold text-green-400 mb-4 flex items-center gap-2">
+                  <Shield className="h-5 w-5" />
+                  defense_protocols.txt:
+                </h4>
+                <div className="space-y-2 text-green-300 text-sm font-mono bg-black/60 p-4 rounded border border-green-500/20">
+                  <p>• verify_sender_identity(email.from)</p>
+                  <p>• check_ssl_certificate(url)</p>
+                  <p>• never_share_credentials(untrusted_sites)</p>
+                  <p>• enable_2fa(all_accounts)</p>
+                  <p>• update_security_software()</p>
+                </div>
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-orange-400 mb-3">Common Red Flags:</h4>
-                <ul className="space-y-2 text-slate-300 text-sm">
-                  <li>• Generic greetings ("Dear User")</li>
-                  <li>• Spelling and grammar errors</li>
-                  <li>• Suspicious links and attachments</li>
-                  <li>• Requests for immediate action</li>
-                  <li>• Too-good-to-be-true offers</li>
-                </ul>
+                <h4 className="text-lg font-mono font-bold text-red-400 mb-4 flex items-center gap-2">
+                  <AlertTriangle className="h-5 w-5" />
+                  threat_indicators.log:
+                </h4>
+                <div className="space-y-2 text-red-300 text-sm font-mono bg-black/60 p-4 rounded border border-red-500/20">
+                  <p>• generic_greetings("Dear User")</p>
+                  <p>• urgency_tactics(time_pressure)</p>
+                  <p>• suspicious_domains(!legitimate)</p>
+                  <p>• credential_harvesting(forms)</p>
+                  <p>• too_good_to_be_true(offers)</p>
+                </div>
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      {/* Restart Button */}
-      <div className="text-center">
+      {/* Restart Terminal */}
+      <div className="text-center space-y-4">
+        <div className="bg-black/80 border border-green-500/30 rounded p-4 font-mono max-w-md mx-auto">
+          <p className="text-green-400 mb-2">$ session_complete</p>
+          <p className="text-green-600 text-sm">Ready for new training scenario?</p>
+        </div>
+        
         <Button 
           size="lg"
           onClick={onRestart}
-          className="bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white font-semibold px-8 py-3"
+          className="bg-black border-2 border-green-500 text-green-400 hover:bg-green-500/10 hover:text-green-300 font-mono px-8 py-4 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
         >
           <RefreshCw className="h-5 w-5 mr-2" />
-          Try Another Scenario
+          ./restart_training.sh --new-scenario
         </Button>
       </div>
+    </div>
+  );
+};
+
+export default GameResult;
     </div>
   );
 };
