@@ -135,7 +135,7 @@ const BrowserInterface = ({ onChoice, currentStep }) => {
                   </h3>
                   <div className="font-mono text-green-300 mb-4">
                     <p>$ ./process_registration.sh --fee=99 --currency=INR</p>
-                    <p className="text-yellow-400">> Processing fee required for verification</p>
+                    <p className="text-yellow-400">Processing fee required for verification</p>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
