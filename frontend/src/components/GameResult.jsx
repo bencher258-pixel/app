@@ -230,7 +230,7 @@ const GameResult = ({ isHacked, choices, onRestart, stats }) => {
           className="bg-black border-2 border-green-500 text-green-400 hover:bg-green-500/10 hover:text-green-300 font-mono px-8 py-4 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
         >
           <RefreshCw className="h-5 w-5 mr-2" />
-          ./restart_training.sh --new-scenario
+          RESTART TRAINING
         </Button>
       </div>
     </div>
