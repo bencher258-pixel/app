@@ -247,10 +247,10 @@ Indian National Academy of Engineering
                         className="bg-red-900/40 border-2 border-red-500 text-red-300 hover:bg-red-900/60 hover:text-red-200 h-auto p-4 text-left font-mono"
                         onClick={() => handleChoice('dangerous', 'browser')}
                       >
-                        <div>
-                          <div className="font-bold">./execute_link.sh</div>
-                          <div className="text-sm opacity-90 mt-1">
-                            $ curl -X GET "https://inae-youth-conclave2025.org/register"
+                        <div className="w-full">
+                          <div className="font-bold text-sm">EXECUTE LINK</div>
+                          <div className="text-xs opacity-90 mt-1 break-words">
+                            Click suspicious registration link
                           </div>
                         </div>
                       </Button>
@@ -260,10 +260,10 @@ Indian National Academy of Engineering
                         className="border-2 border-green-500 text-green-400 hover:bg-green-900/20 hover:text-green-300 h-auto p-4 text-left font-mono"
                         onClick={() => handleChoice('safe')}
                       >
-                        <div>
-                          <div className="font-bold">./verify_sender.sh</div>
-                          <div className="text-sm opacity-90 mt-1">
-                            $ whois inae-youth.org && nslookup domain
+                        <div className="w-full">
+                          <div className="font-bold text-sm">VERIFY SENDER</div>
+                          <div className="text-xs opacity-90 mt-1 break-words">
+                            Check email authenticity first
                           </div>
                         </div>
                       </Button>
