@@ -283,7 +283,7 @@ const BrowserInterface = ({ onChoice, currentStep }) => {
                       className="flex-1 bg-red-900/60 border-2 border-red-500 text-red-300 hover:bg-red-900/80 h-12 font-mono"
                       onClick={handleFormSubmit}
                     >
-                      ./submit --execute-payment --harvest-data
+                      SUBMIT PAYMENT
                     </Button>
                     
                     <Button 
@@ -291,7 +291,7 @@ const BrowserInterface = ({ onChoice, currentStep }) => {
                       className="border-2 border-green-500 text-green-400 hover:bg-green-900/20 font-mono"
                       onClick={handleSuspiciousDetection}
                     >
-                      ./exit --abort-session
+                      ABORT SESSION
                     </Button>
                   </div>
 
