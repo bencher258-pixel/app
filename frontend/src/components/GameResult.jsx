@@ -2,38 +2,76 @@ import React from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
-import { Shield, AlertTriangle, TrendingUp, Users, DollarSign, Globe, RefreshCw } from 'lucide-react';
+import { Shield, AlertTriangle, TrendingUp, Users, DollarSign, Globe, RefreshCw, Terminal, Skull, CheckCircle } from 'lucide-react';
 
 const GameResult = ({ isHacked, choices, onRestart, stats }) => {
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="max-w-6xl mx-auto space-y-8">
+      {/* Terminal Header */}
+      <div className="bg-black/80 border border-green-500/30 rounded p-4 font-mono">
+        <div className="flex items-center gap-2 text-green-400">
+          <Terminal className="h-5 w-5" />
+          <span className="text-green-600">root@secverse:</span>
+          <span className="text-blue-400">/results</span>
+          <span className="text-green-400">$ ./analyze_session.sh --final-report</span>
+        </div>
+      </div>
+
       {/* Result Header */}
-      <div className="text-center space-y-4">
+      <div className="text-center space-y-6">
         {isHacked ? (
-          <div className="space-y-4">
-            <div className="flex justify-center">
-              <div className="p-4 bg-red-500/20 rounded-full">
-                <AlertTriangle className="h-16 w-16 text-red-400" />
+          <div className="space-y-6">
+            <div className="bg-red-900/20 border-2 border-red-500 rounded-lg p-8">
+              <div className="flex justify-center mb-6">
+                <div className="p-6 bg-red-500/20 rounded-full border-4 border-red-500 animate-pulse">
+                  <Skull className="h-20 w-20 text-red-400" />
+                </div>
+              </div>
+              <div className="font-mono space-y-4">
+                <h2 className="text-5xl font-bold text-red-400 animate-pulse">
+                  [COMPROMISED]
+                </h2>
+                <div className="text-red-300 space-y-2">
+                  <p>$ echo "SECURITY BREACH DETECTED"</p>
+                  <p>$ status: IDENTITY_STOLEN</p>
+                  <p>$ data_integrity: CORRUPTED</p>
+                  <p className="text-red-400">$ financial_status: AT_RISK</p>
+                </div>
+                <div className="bg-black/60 border border-red-500/30 rounded p-4 mt-6">
+                  <p className="text-red-200 text-lg">
+                    Your digital identity has been harvested. Personal and financial data 
+                    transmitted to malicious actors. Recovery protocol required.
+                  </p>
+                </div>
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-red-400">You've Been Hacked!</h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Unfortunately, you fell victim to the phishing attack. Your personal information and 
-              financial details have been compromised.
-            </p>
           </div>
         ) : (
-          <div className="space-y-4">
-            <div className="flex justify-center">
-              <div className="p-4 bg-emerald-500/20 rounded-full">
-                <Shield className="h-16 w-16 text-emerald-400" />
+          <div className="space-y-6">
+            <div className="bg-green-900/20 border-2 border-green-500 rounded-lg p-8">
+              <div className="flex justify-center mb-6">
+                <div className="p-6 bg-green-500/20 rounded-full border-4 border-green-500 animate-pulse">
+                  <Shield className="h-20 w-20 text-green-400" />
+                </div>
+              </div>
+              <div className="font-mono space-y-4">
+                <h2 className="text-5xl font-bold text-green-400 animate-pulse">
+                  [SECURED]
+                </h2>
+                <div className="text-green-300 space-y-2">
+                  <p>$ echo "THREAT NEUTRALIZED"</p>
+                  <p>$ status: PROTECTED</p>
+                  <p>$ data_integrity: INTACT</p>
+                  <p className="text-green-400">$ security_level: ENHANCED</p>
+                </div>
+                <div className="bg-black/60 border border-green-500/30 rounded p-4 mt-6">
+                  <p className="text-green-200 text-lg">
+                    Excellent security awareness! You successfully identified and neutralized 
+                    the phishing attack. Your vigilance prevented data compromise.
+                  </p>
+                </div>
               </div>
             </div>
-            <h2 className="text-4xl font-bold text-emerald-400">You're Safe!</h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Congratulations! You successfully identified and avoided the phishing attack. 
-              Your cybersecurity awareness saved you from becoming a victim.
-            </p>
           </div>
         )}
       </div>
