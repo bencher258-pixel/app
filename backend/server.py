@@ -58,7 +58,7 @@ app.include_router(api_router)
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_origins=["https://secverse-frontend.onrender.com"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
