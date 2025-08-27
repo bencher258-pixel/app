@@ -238,8 +238,3 @@ const GameResult = ({ isHacked, choices, onRestart, stats }) => {
 };
 
 export default GameResult;
-    </div>
-  );
-};
-
-export default GameResult;
