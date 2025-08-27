@@ -143,7 +143,7 @@ const BrowserInterface = ({ onChoice, currentStep }) => {
                       className="bg-red-900/40 border-2 border-red-500 text-red-300 hover:bg-red-900/60 h-12 font-mono"
                       onClick={() => setCurrentPage('registration')}
                     >
-                      ./execute --register-now
+                      PROCEED TO REGISTER
                     </Button>
                     
                     <Button 
@@ -151,7 +151,7 @@ const BrowserInterface = ({ onChoice, currentStep }) => {
                       className="border-2 border-green-500 text-green-400 hover:bg-green-900/20 font-mono"
                       onClick={handleSuspiciousDetection}
                     >
-                      ./abort --suspicious-activity
+                      ABORT - SUSPICIOUS
                     </Button>
                   </div>
                 </div>
