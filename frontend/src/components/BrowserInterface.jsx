@@ -112,7 +112,7 @@ const BrowserInterface = ({ onChoice, currentStep }) => {
                   <div className="font-mono text-green-300 mb-4">
                     <p>$ echo "Congratulations! Authentication verified."</p>
                     <p>$ timer --countdown 23:47:32</p>
-                    <p className="text-red-400 animate-pulse">> WARNING: Session expires soon!</p>
+                    <p className="text-red-400 animate-pulse">WARNING: Session expires soon!</p>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-4 text-sm font-mono">
